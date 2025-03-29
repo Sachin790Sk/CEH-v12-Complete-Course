@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crackshash_mod - CEH v12 Complete Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Core Styling with Hacker Theme */
+        :root {
+            --main-bg-color: #0a0a0a;
+            --secondary-bg-color: #111;
+            --accent-color: #00ff00;
+            --text-color: #e0e0e0;
+            --card-bg-color: #1a1a1a;
+            --hover-color: #00cc00;
+            --instagram-color: #e1306c;
+            --telegram-color: #0088cc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: var(--main-bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="30" font-family="monospace" font-size="10" fill="rgba(0,255,0,0.05)">01010101</text><text x="10" y="50" font-family="monospace" font-size="10" fill="rgba(0,255,0,0.05)">10101010</text><text x="10" y="70" font-family="monospace" font-size="10" fill="rgba(0,255,0,0.05)">01010101</text><text x="10" y="90" font-family="monospace" font-size="10" fill="rgba(0,255,0,0.05)">10101010</text></svg>');
+        }
+        
+        header {
+            background-color: var(--secondary-bg-color);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .banner {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            height: 250px;
+            background-color: #222;
+            border: 1px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .banner-text {
+            position: absolute;
+            text-align: center;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border: 1px solid var(--accent-color);
+        }
+        
+        .banner-text h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px var(--accent-color);
+        }
+        
+        .banner-text p {
+            font-size: 1.2rem;
+        }
+        
+        .course-info {
+            background-color: var(--card-bg-color);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 5px;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+        }
+        
+        h1, h2, h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .features {
+            margin: 20px 0;
+        }
+        
+        .features ul {
+            list-style-type: none;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(0, 255, 0, 0.3);
+        }
+        
+        .features li:before {
+            content: ">";
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+        
+        .tasks-section {
+            background-color: var(--card-bg-color);
+            padding: 30px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 30px 0;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+        }
+        
+        .task-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .task-card {
+            background-color: #222;
+            border-radius: 5px;
+            padding: 25px;
+            width: 300px;
+            text-align: center;
+            border: 1px solid var(--accent-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+        }
+        
+        .task-card.instagram {
+            border-color: var(--instagram-color);
+        }
+        
+        .task-card.telegram {
+            border-color: var(--telegram-color);
+        }
+        
+        .task-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .task-icon.instagram {
+            color: var(--instagram-color);
+        }
+        
+        .task-icon.telegram {
+            color: var(--telegram-color);
+        }
+        
+        .task-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .task-description {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .task-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .task-button.instagram {
+            background-color: var(--instagram-color);
+        }
+        
+        .task-button.instagram:hover {
+            background-color: #c13584;
+            box-shadow: 0 0 10px var(--instagram-color);
+        }
+        
+        .task-button.telegram {
+            background-color: var(--telegram-color);
+        }
+        
+        .task-button.telegram:hover {
+            background-color: #0077b5;
+            box-shadow: 0 0 10px var(--telegram-color);
+        }
+        
+        .task-checkbox {
+            margin-top: 15px;
+        }
+        
+        .task-checkbox label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .task-checkbox input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .verify-container {
+            margin: 30px auto;
+            text-align: center;
+        }
+        
+        button {
+            background-color: var(--accent-color);
+            color: black;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: var(--hover-color);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        
+        button:disabled {
+            background-color: #444;
+            cursor: not-allowed;
+            color: #999;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .verification-section {
+            text-align: center;
+            padding: 30px;
+            margin: 20px auto;
+        }
+        
+        .verification-section .spinner {
+            margin: 20px auto;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 255, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .congrats-box {
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #222;
+            border-radius: 5px;
+            border: 3px solid var(--accent-color);
+            text-align: center;
+            max-width: 700px;
+            animation: glow 1.5s infinite alternate;
+            transform: scale(1);
+            transition: transform 0.5s;
+        }
+        
+        .congrats-box:hover {
+            transform: scale(1.02);
+        }
+        
+        .congrats-title {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+        
+        .congrats-message {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .access-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .access-button:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px var(--accent-color);
+            }
+            to {
+                box-shadow: 0 0 25px var(--accent-color);
+            }
+        }
+        
+        .typing-effect {
+            overflow: hidden;
+            border-right: 2px solid var(--accent-color);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 3px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color) }
+        }
+        
+        .donation-section {
+            background-color: var(--card-bg-color);
+            padding: 30px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 30px 0;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+        }
+        
+        .donation-info {
+            margin: 20px 0;
+        }
+        
+        .qr-code {
+            max-width: 250px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        
+        .qr-code img {
+            width: 100%;
+        }
+        
+        .upi-id {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 300px;
+            border: 1px dashed var(--accent-color);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-top: 1px solid var(--accent-color);
+            font-size: 0.9rem;
+        }
+        
+        /* Matrix rain animation in background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix" class="matrix-bg"></canvas>
+    
+    <header>
+        <div class="logo">Crackshash_mod</div>
+        <p class="typing-effect">Ethical Hacking | Cybersecurity | Penetration Testing</p>
+    </header>
+    
+    <div class="container">
+        <div class="banner">
+            <!-- Using the path you provided -->
+            <img src="ceh wall.jpg" alt="CEH v12 Banner">
+            <div class="banner-text">
+                <h2>CEH v12 Complete Course</h2>
+                <p>Master Ethical Hacking and Cybersecurity</p>
+            </div>
+        </div>
+        
+        <div class="course-info">
+            <h1>Certified Ethical Hacker (CEH) v12 Complete Course</h1>
+            <p>Welcome to the most comprehensive CEH v12 course available online. This course is designed to prepare you for the EC-Council Certified Ethical Hacker exam and equip you with practical skills needed in the cybersecurity industry.</p>
+            
+            <div class="features">
+                <h3>> Course Contents:</h3>
+                <ul>
+                    <li>Introduction to Ethical Hacking</li>
+                    <li>Footprinting and Reconnaissance</li>
+                    <li>Scanning Networks</li>
+                    <li>Enumeration</li>
+                    <li>Vulnerability Analysis</li>
+                    <li>System Hacking</li>
+                    <li>Malware Threats</li>
+                    <li>Sniffing</li>
+                    <li>Social Engineering</li>
+                    <li>Denial-of-Service</li>
+                    <li>Session Hijacking</li>
+                    <li>Evading IDS, Firewalls, and Honeypots</li>
+                    <li>Hacking Web Servers</li>
+                    <li>Hacking Web Applications</li>
+                    <li>SQL Injection</li>
+                    <li>Hacking Wireless Networks</li>
+                    <li>Hacking Mobile Platforms</li>
+                    <li>IoT Hacking</li>
+                    <li>Cloud Computing</li>
+                    <li>Cryptography</li>
+                </ul>
+            </div>
+            
+            <div class="features">
+                <h3>> What You'll Get:</h3>
+                <ul>
+                    <li>Complete CEH v12 Study Materials</li>
+                    <li>Practical Labs and Exercises</li>
+                    <li>Practice Exam Questions</li>
+                    <li>Cheat Sheets and Quick References</li>
+                    <li>Tools and Resources</li>
+                    <li>Lifetime Access to Course Updates</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="tasksSection" class="tasks-section">
+            <h2>Unlock Full Course Access</h2>
+            <p>Complete the following tasks to get free access to the complete CEH v12 course materials.</p>
+            
+            <div class="task-cards">
+                <div class="task-card instagram">
+                    <div class="task-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3 class="task-title">Follow on Instagram</h3>
+                    <p class="task-description">Follow Crackshash_mod on Instagram to stay updated with the latest cybersecurity tips and tricks.</p>
+                    <a href="https://www.instagram.com/crackshash_mod?igsh=MTA3ZXRsbHR3dmVhbw==" target="_blank" class="task-button instagram">Follow Now</a>
+                    <div class="task-checkbox">
+                        <label>
+                            <input type="checkbox" id="instagramTask"> I've followed on Instagram
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="task-card telegram">
+                    <div class="task-icon telegram">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h3 class="task-title">Subscribe on Telegram</h3>
+                    <p class="task-description">Join our Telegram channel for exclusive content, updates, and resources.</p>
+                    <a href="https://t.me/+6W5RMrCO3h84MWU1" target="_blank" class="task-button telegram">Subscribe Now</a>
+                    <div class="task-checkbox">
+                        <label>
+                            <input type="checkbox" id="telegramTask"> I've subscribed on Telegram
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="verify-container">
+                <button id="verifyBtn" disabled>Verify & Unlock Course</button>
+            </div>
+            
+            <div id="verificationSection" class="verification-section hidden">
+                <h3>Verifying Your Tasks...</h3>
+                <div class="spinner"></div>
+                <p>Please wait while we process your information.</p>
+            </div>
+        </div>
+        
+        <div id="congratsSection" class="congrats-box hidden">
+            <h2 class="congrats-title">🎉 CONGRATULATIONS! 🎉</h2>
+            <p class="congrats-message">You've successfully unlocked the complete CEH v12 course for FREE!</p>
+            <p>Thank you for following and subscribing. Enjoy the comprehensive ethical hacking materials and start your journey to becoming a certified ethical hacker.</p>
+            <a href="https://drive.google.com/drive/folders/1l5lmoYW0f0kkByv9N2ZLys2KpJJddsQy" target="_blank" class="access-button">
+                GRAB THIS COURSE FREE
+            </a>
+        </div>
+        
+        <div class="donation-section">
+            <h2>Support Our Work</h2>
+            <p>If you find our course valuable, please consider supporting us with a small donation. Your support helps us create more quality content.</p>
+            
+            <div class="donation-info">
+                <p>Scan the QR code below or use the UPI ID to make a donation:</p>
+                
+                <div class="qr-code">
+                    <!-- Using the path you provided -->
+                    <img src="photo_2025-03-29_10-31-07.jpg" alt="UPI QR Code">
+                </div>
+                
+                <div class="upi-id">
+                    <p>UPI ID: <strong>kumarxs123@fam</strong></p>
+                </div>
+                
+                <p>Every contribution, no matter how small, makes a difference. Thank you for your support!</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Crackshash_mod | Ethical Hacking & Cybersecurity Training</p>
+        <p>Disclaimer: This course is for educational purposes only. Always practice ethical hacking with proper authorization.</p>
+    </footer>
+
+    <script>
+        // Matrix rain animation
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+{}[]|;:,.<>?/~`';
+        const fontSize = 12;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff00';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 50);
+        
+        // Task verification
+        const instagramCheckbox = document.getElementById('instagramTask');
+        const telegramCheckbox = document.getElementById('telegramTask');
+        const verifyBtn = document.getElementById('verifyBtn');
+        
+        // Enable/disable verify button based on task completion
+        function updateVerifyButton() {
+            verifyBtn.disabled = !(instagramCheckbox.checked && telegramCheckbox.checked);
+        }
+        
+        instagramCheckbox.addEventListener('change', updateVerifyButton);
+        telegramCheckbox.addEventListener('change', updateVerifyButton);
+        
+        // Verify tasks and show access
+        verifyBtn.addEventListener('click', function() {
+            // Show verification in progress
+            document.getElementById('tasksSection').classList.add('hidden');
+            document.getElementById('verificationSection').classList.remove('hidden');
+            
+            // Simulate verification delay (2 seconds)
+            setTimeout(function() {
+                // Hide verification section and show congrats
+                document.getElementById('verificationSection').classList.add('hidden');
+                document.getElementById('congratsSection').classList.remove('hidden');
+                
+                // Scroll to the congrats section
+                document.getElementById('congratsSection').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }, 2000);
+        });
+        
+        // Resize matrix canvas when window is resized
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
